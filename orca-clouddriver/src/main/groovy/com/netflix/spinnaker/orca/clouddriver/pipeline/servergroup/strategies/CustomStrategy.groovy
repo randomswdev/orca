@@ -55,8 +55,8 @@ class CustomStrategy implements Strategy {
 
     Map modifyCtx = [
       application        : stage.context.application,
-      pipelineApplication: stage.context.strategyApplication,
-      pipelineId         : stage.context.strategyPipeline,
+      pipelineApplication: stage.context.strategyApplication?:stage.context.serverGroupParameters["strategyApplication"],
+      pipelineId         : stage.context.strategyPipeline?:stage.context.serverGroupParameters["strategyPipeline"],
       pipelineParameters : parameters
     ]
 
